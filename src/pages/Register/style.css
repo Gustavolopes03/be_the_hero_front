@@ -1,0 +1,72 @@
+
+.Wraper{
+    width: 10%;
+    height: 100px;
+    position: relative;
+}
+
+.backtext {
+    display: flex;
+    height: 20px;
+}
+
+.Inputs,
+.Content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+button,input {
+    height: 40px;
+    width: 310px;
+}
+
+.Content {
+    width: 100%;
+    left: 200%;
+    top: 180%;
+  }
+
+.text {
+    text-align: initial;
+    width: 380px;
+}
+
+.register {
+    font-size: 190%;
+    margin-block: 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.Inputs {
+    z-index: 10;
+    display: inline-table;
+    left: 55%;
+    top: 30%;
+    position: fixed;   
+}
+
+input {
+    margin-top: 5px;
+}
+
+.city {
+    width: 255px;
+    margin-right: 5px;
+}
+
+.uf {
+    width: 50px;
+}
+
+button {
+    margin-top: 5px;
+    border-radius: 4px;
+}
+
+
