@@ -17,10 +17,7 @@
   position: absolute;
 }
 
-button,input {
-    height: 40px;
-    width: 310px;
-}
+
 
 .Content {
     width: 100%;
@@ -51,6 +48,11 @@ a {
     position: fixed;   
 }
 
+button,input {
+    height: 43px;
+    width: 310px;
+}
+
 input {
     margin-top: 5px;
 }
@@ -62,6 +64,7 @@ input {
 
 .uf {
     width: 50px;
+    text-align: center;
 }
 
 button {

@@ -22,13 +22,18 @@ body {
 
 input {
   border-radius: 4px;
-  text-align: center;
   border: 1.5px solid ;
-  border-color: rgba(220, 220, 229, 1)
+  text-align: start;
+  padding: 10px;
+  border-color: rgba(220, 220, 229, 1);
+}
+
+::placeholder {
+  color: rgba(168, 168, 179, 1);
 }
 
 button {
-  color:black;
+  color:white;
   background: rgba(224, 32, 65, 1);
   border: none;
 }
