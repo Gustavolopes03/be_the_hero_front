@@ -1,9 +1,9 @@
-import '../Register/style.css'
 import React, { useState } from "react";
 import logo from '../../assets/logo.svg';
-import voltar from '../../assets/voltar.svg'
+import voltar from '../../assets/voltar.svg';
 // import api from "../../service/api";
 
+import './style.css';
 
 export default function Register(){
     const [ name, setName ] = useState(""); 
@@ -19,7 +19,7 @@ export default function Register(){
     }
 
     return(
-        <form className="Wraper" onSubmit={ handleRegister }>
+        <form className="Wraper_Reg" onSubmit={ handleRegister }>
             <div className="Content">
                 <img className="logo" src={logo} alt=""/>
                 <div className="text" >
