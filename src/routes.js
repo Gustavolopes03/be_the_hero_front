@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch, BrowserRouter  } from "react-router-dom";
+
 import Login from "./pages/Login";
-import Occurrences from "./pages/Occurrences";
 import Register from "./pages/Register";
+import Occurrences from "./pages/Occurrences";
 
 export default function Routes(){
     return (

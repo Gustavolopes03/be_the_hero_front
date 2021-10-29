@@ -1,75 +1,61 @@
-
-.Wraper_Reg{
-    width: 10%;
-    height: 100px;
-    position: relative;
-}
-
-.backtext {
-    display: flex;
-    height: 20px;
-}
-
-.Inputs,
-.Content {
+.register-conteiner {
   width: 100%;
-  height: 100%;
-  position: absolute;
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.register-conteiner .content {
+  width: 100%;
+  padding: 96px;
+  background: #f0f0f5;
+  box-shadow: 0 0 50px rgba(0, 0, 0.1);
+  border-radius: 8px;
 
-
-.Content {
-    width: 100%;
-    left: 200%;
-    top: 180%;
-  }
-
-.text {
-    text-align: initial;
-    width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.register {
-    font-size: 190%;
-    margin-block: 5%;
+.register-conteiner .content section {
+  width: 100%;
+  max-width: 380px;
 }
 
-a {
-    text-decoration: none;
+.register-conteiner .content section h1 {
+  margin: 64px 0 32px;
+  font-size: 32px;
 }
 
-
-.Inputs {
-    z-index: 10;
-    display: inline-table;
-    left: 55%;
-    top: 30%;
-    position: fixed;   
+.register-conteiner .content section p {
+  color: #737380;
+  font-size: 18px;
+  line-height: 32px;
 }
 
-button,input {
-    height: 43px;
-    width: 310px;
+.register-conteiner .content form {
+  width: 100%;
+  max-width: 480px;
 }
 
-input {
-    margin-top: 5px;
+.register-conteiner .content form input {
+  margin-top: 8px;
 }
 
-.city {
-    width: 255px;
-    margin-right: 5px;
+.register-conteiner .content form .input-group {
+  display: flex;
 }
 
-.uf {
-    width: 50px;
-    text-align: center;
+.register-conteiner .content form .input-group input + input {
+  margin-left: 8px;
 }
 
-button {
-    margin-top: 5px;
-    border-radius: 4px;
+.register-conteiner .content form button {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 8px;
 }
-
-

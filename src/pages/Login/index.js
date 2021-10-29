@@ -1,55 +1,60 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+
+import api from "../../service/api";
+import "./style.css";
+
 import logo from "../../assets/logo.svg";
 import heroes from "../../assets/heroes.png";
-import voltar_login from "../../assets/voltar_login.svg";
-import api from "../../service/api";
-import { useHistory } from "react-router-dom";
+import { FiLogIn } from "react-icons/fi";
 
-import './style.css';
-import { useState } from "react/cjs/react.development";
+export default function Login() {
+  const [id, setId] = useState("");
+  const history = useHistory();
 
-export default function Login(){
+  async function handleLogin(e) {
+    e.preventDefault();
 
-    const [id, setId] = useState("");
-    const history = useHistory();
+    try {
+      const response = await api.get(`/ongs/${id}`);
 
-    async function handleLogin(e) {
+      localStorage.setItem("#be_the_hero:ongId", id);
+      localStorage.setItem("#be_the_hero:ongName", response.data.ongToken.name);
+      localStorage.setItem(
+        "#be_the_hero:ongToken",
+        response.data.ongToken.token
+      );
 
-        e.preventDefault();
-
-        try{
-
-            const response = await api.get(`/ongs/${id}`);
-
-            localStorage.setItem("#be_the_hero:ongId", id);
-            localStorage.setItem("#be_the_hero:ongName", response.data.ongToken.name);
-            localStorage.setItem("#be_the_hero:ongToken", response.data.ongToken.token);
-
-            history.push("/occ");
-
-        } catch (err) {
-            alert("Falha ao Logar", err);
-        };
-
+      history.push("/occ");
+    } catch (err) {
+      alert("Falha ao Logar", err);
     }
+  }
 
-    return(
-    <div className="Wraper_Log">
-        <img className="logo" src={logo} alt=""/>
-        <h1>Fassa seu Login</h1> 
-        <form onSubmit={handleLogin} >
-            <input 
-            type="text" 
+  return (
+    <div className="logon-container">
+      <section className="form">
+        <img src={logo} alt="" />
+
+        <form onSubmit={handleLogin}>
+          <h1>Faça seu Login</h1>
+          <input
+            type="text"
             placeholder="Sua ID"
             value={id}
-            onChange={e=>setId(e.target.value)}
-            ></input>
-            <button type="submit"  >Cadastro</button>
+            onChange={(e) => setId(e.target.value)}
+          />
+          <button className="button" type="submit" onClick="">
+            Login
+          </button>
+
+          <Link className="back-link" to="/register">
+            <FiLogIn size={16} color="#e02041" />
+            <h3>Não Tenho Cadastro</h3>
+          </Link>
         </form>
-        <img className="voltar_login" src={voltar_login} alt=""/>
-        <Link to='/register' >Não Tenho Cadastro</Link>
-        <img className="heroes" src={heroes} alt=""/>
+      </section>
+      <img src={heroes} alt="" />
     </div>
-    );
+  );
 }
