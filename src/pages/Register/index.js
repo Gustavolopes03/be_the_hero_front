@@ -14,6 +14,7 @@ export default function Register() {
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
   const history = useHistory();
+
   async function handleRegister(e) {
     e.preventDefault();
     const data = { name, email, whatsapp, city, uf };

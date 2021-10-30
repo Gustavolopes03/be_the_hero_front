@@ -7,6 +7,7 @@ import "../Occurrences/style.css";
 
 export default function Occurrences() {
   const name = localStorage.getItem("#be_the_hero:ongName");
+  
   const tytle = localStorage.getItem("#be_the_hero:tytle");
   const description = localStorage.getItem("#be_the_hero:description");
   const value = localStorage.getItem("#be_the_hero:value");
@@ -17,9 +18,11 @@ export default function Occurrences() {
         <header>
           <img className="logo" src={logo} alt="" />
           <h1>Bem vindo, {name}</h1>
-          <button className="button" type="submit">
-            Cadastrar novo caso
-          </button>
+          <Link to="/occ/register">
+            <button className="button" type="submit">
+              Cadastrar novo caso
+            </button>
+          </Link>
           <Link to="/">
             <button className="logoff" type="submit" href="/">
               <img src={power} alt="" />
