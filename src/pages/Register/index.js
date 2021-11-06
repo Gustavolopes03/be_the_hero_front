@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../assets/logo.svg";
@@ -40,7 +41,7 @@ export default function Register() {
             os casos da sua ONG.
           </p>
 
-          <Link className="back-link" to="/">
+          <Link className="back-link" to="/occ/register"> {/*arrumar link*/}
             <FiArrowLeft size={16} color="#E02041" />
             Volte para o login
           </Link>

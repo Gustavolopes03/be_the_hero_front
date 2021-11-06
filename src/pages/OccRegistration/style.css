@@ -1,0 +1,76 @@
+  .occ-reg-conteiner {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .occ-reg-conteiner .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 50px rgba(0, 0, 0.1);
+    border-radius: 8px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .occ-reg-conteiner .content section {
+    width: 100%;
+    max-width: 380px;
+  }
+  
+  .occ-reg-conteiner .content section h1 {
+    margin: 64px 0 32px;
+    font-size: 32px;
+  }
+  
+  .occ-reg-conteiner .content section p {
+    color: #737380;
+    font-size: 18px;
+    line-height: 32px;
+  }
+  
+  .occ-reg-conteiner .content form {
+    width: 100%;
+    max-width: 480px;
+    position: absolute;
+    right: 16%;
+    top: 19%;
+  }
+  
+  .occ-reg-conteiner .content form input {
+    margin-top: 8px;
+  }
+
+  .occ-reg-conteiner .content form textarea {
+    height: 175px;
+    margin-top: 8px;
+    resize: none;
+  }
+  
+  .occ-reg-conteiner .content form button {
+    width: 263px;
+    height: 60px;
+    margin-top: 8px;
+  }
+
+  .occ-reg-conteiner .content form .button-group {
+    display: flex;
+  }
+
+  .occ-reg-conteiner .content form .button-t2 {
+    width: 168px;
+  }
+
+  .occ-reg-conteiner .content form .button {
+    width: 263px;
+    margin-left: 9%;
+  }
+  
