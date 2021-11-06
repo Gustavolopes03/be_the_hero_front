@@ -9,6 +9,27 @@ import "../OccRegistration/style.css"
 
 
 export default function occRegistration() {
+
+  e.preventDefault();
+
+    const data = {
+      title,
+      description,
+      value
+    };
+
+    try {
+      await api.post('incidents', data, {
+        headers: {
+          Authorization: ongId
+        }
+      });
+
+      history.push('/profile');
+    } catch (err) {
+      alert('Erro no cadastrar caso, tente novamente');
+    }
+
   return (
     <div className="occ-reg-conteiner" >
       <div className="content" >
@@ -25,9 +46,22 @@ export default function occRegistration() {
 
             <form>
 
-              <input placeholder="Título do Caso" />
-              <textarea placeholder="Descrição" />
-              <input placeholder="Valor em Reais" />
+              <input 
+              placeholder="Título do Caso" 
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              />
+
+              <textarea placeholder="Descrição"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+              />
+
+              <input 
+              placeholder="Valor em Reais"
+              value={value}
+              onChange={e => setValue(e.target.value)}
+              />
 
               <div className="button-group">
               <Link to="">

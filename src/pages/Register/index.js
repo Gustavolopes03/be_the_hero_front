@@ -41,7 +41,7 @@ export default function Register() {
             os casos da sua ONG.
           </p>
 
-          <Link className="back-link" to="/occ/register"> {/*arrumar link*/}
+          <Link className="back-link" to="/">
             <FiArrowLeft size={16} color="#E02041" />
             Volte para o login
           </Link>
