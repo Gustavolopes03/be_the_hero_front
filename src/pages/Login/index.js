@@ -25,8 +25,10 @@ export default function Login() {
         response.data.ongToken.token
       );
 
+
       history.push("/occ");
     } catch (err) {
+      console.log(err)
       alert("Falha ao Logar", err);
     }
   }

@@ -1,6 +1,5 @@
-
+import React,{ useState } from "react";
 import { Link } from "react-router-dom";
-
 import { FiArrowLeft } from "react-icons/fi";
 
 import logo from "../../assets/logo.svg";
@@ -8,27 +7,31 @@ import logo from "../../assets/logo.svg";
 import "../OccRegistration/style.css"
 
 
-export default function occRegistration() {
+export default function OccRegistration() {
 
-  e.preventDefault();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [value, setValue] = useState("");
 
-    const data = {
-      title,
-      description,
-      value
-    };
+  // e.preventDefault();
 
-    try {
-      await api.post('incidents', data, {
-        headers: {
-          Authorization: ongId
-        }
-      });
+    // const data = {
+    //   title,
+    //   description,
+    //   value
+    // };
 
-      history.push('/profile');
-    } catch (err) {
-      alert('Erro no cadastrar caso, tente novamente');
-    }
+    // try {
+    //   await api.post('occurences', data, {
+    //     headers: {
+    //       Authorization: ongId
+    //     }
+    //   });
+
+    //   history.push('/profile');
+    // } catch (err) {
+    //   alert('Erro no cadastrar caso, tente novamente');
+    // }
 
   return (
     <div className="occ-reg-conteiner" >
@@ -39,7 +42,7 @@ export default function occRegistration() {
           <h1>Cadastrar novo Caso</h1>
           <p>Descreva o caso detalhadamente para encontrar um herói para resolver isso.</p>
 
-            <Link className="back-link" to="/register">
+            <Link className="back-link" to="/occ">
               <FiArrowLeft size={16} color="#E02041" />
               <h3>Voltar para Home</h3>
             </Link>
