@@ -1,58 +1,82 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { FiTrash2 } from "react-icons/fi";
 
 import logo from "../../assets/logo.svg";
 import power from "../../assets/power.svg";
 
+import api from "../../service/api"
 import "../Occurrences/style.css";
 
 export default function Occurrences() {
-  const name = localStorage.getItem("#be_the_hero:ongName");
-  
-  const tytle = localStorage.getItem("#be_the_hero:tytle");
-  const description = localStorage.getItem("#be_the_hero:description");
-  const value = localStorage.getItem("#be_the_hero:value");
+  const [occurences,setOccurences] = useState([]);
+  const history = useHistory();
 
+  const ongName = localStorage.getItem("#be_the_hero:ongName");
+  const ongToken = localStorage.getItem("#be_the_hero:ongToken");
+
+  useEffect(() => {
+    api.get('occ/', {
+      headers: {
+        Authorization: `Bearer ${ongToken}`,
+      }
+    }).then(response => {
+      setOccurences(response.data.occurences);
+    });
+}, []);
+
+  function handleLogout() {
+    localStorage.clear();
+
+    history.push('/');
+  }
+  
   return (
     <div className="occ-conteiner">
       <div className="occ-content">
         <header>
           <img className="logo" src={logo} alt="" />
-          <h1>Bem vindo, {name}</h1>
+          <h1>Bem vindo, {ongName}</h1>
           <Link to="/occ/register">
             <button className="button" type="submit">
               Cadastrar novo caso
             </button>
           </Link>
-          <Link to="/">
-            <button className="logoff" type="submit" href="/">
+            <button className="logoff" type="submit" onClick={handleLogout}>
               <img src={power} alt="" />
             </button>
-          </Link>
         </header>
-        <div className="occ-box-wrapper">
+
+        <ul>
           <h1>Casos Cadastrasdos</h1>
-          <div className="box">
-            <div className="box-content">
-              <h2>Caso:</h2>
-              <h3>{tytle}</h3>
+          {occurences.map(occurences => (
+            <li key={occurences.id}>
+              
+                <div className="box">
+                  <div className="title-content" >
 
-              <h2>Descrição:</h2>
-              <p>{description}</p>
+                    <h2>Caso:</h2>
+                    <p>{occurences.title}</p>
 
-              <h2>Valor:</h2>
-              <h3>{value}</h3>
-            </div>
-          </div>
+                  </div>
 
-          {/* <script>
-            function multiplyNode(node, count, deep) {
-                for (var i = 0, copy; i < count - 1; i++) {
-                copy = node.cloneNode(deep);
-                node.parentNode.insertBefore(copy, node);
-                }
-            }
-        </script> */}
-        </div>
+                    <h2>Descrição:</h2>
+                    <p>{occurences.description}</p>
+                    
+                  <div className="value-content" >
+
+                    <h2>Valor:</h2>
+                    <p>{occurences.value}</p>
+
+                  </div>
+
+                  <FiTrash2 size={20} color="#a8a8b3"/>
+                  
+              </div>
+            </li>))}
+          
+        </ul>
+
       </div>
     </div>
   );

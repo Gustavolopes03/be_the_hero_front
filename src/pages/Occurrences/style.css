@@ -62,7 +62,7 @@
   height: 24px;
 }
 
-.occ-conteiner .occ-content .box {
+.occ-conteiner ul .box {
   height: 314px;
   width: 543px;
   margin-top: 14px;
@@ -70,16 +70,34 @@
   margin-right: 10px;
   left: 0px;
   top: 0px;
+  list-style: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 1);
 }
 
-.occ-conteiner .occ-content .box .box-content {
+.occ-conteiner .occ-content .box {
   padding: 5%;
 }
 
-.occ-conteiner .occ-content .box .box-content h2,
+.occ-conteiner .occ-content .box h2,
 h3,
 p {
   margin: 5px;
+}
+
+.occ-conteiner .occ-content .box h2 {
+  font-size: 24px;
+}
+
+.occ-conteiner .occ-content .box p {
+  font-size: 20px;
+  margin-top: 7.5px;
+}
+
+.occ-conteiner .occ-content .box .title-content {
+  display: flex;
+}
+
+.occ-conteiner .occ-content .box .value-content {
+  display: flex;
 }
