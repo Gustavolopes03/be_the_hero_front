@@ -4,7 +4,9 @@ import { FiArrowLeft } from "react-icons/fi";
 
 import logo from "../../assets/logo.svg";
 
+import api from "../../service/api"
 import "../OccRegistration/style.css"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 export default function OccRegistration() {
@@ -13,25 +15,36 @@ export default function OccRegistration() {
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
 
-  // e.preventDefault();
+  const ongToken = localStorage.getItem('#be_the_hero:ongToken')
+  const history = useHistory();
 
-    // const data = {
-    //   title,
-    //   description,
-    //   value
-    // };
+  async function handleOccRegistration(e){
+    e.preventDefault();
 
-    // try {
-    //   await api.post('occurences', data, {
-    //     headers: {
-    //       Authorization: ongId
-    //     }
-    //   });
+      const data = {
+        title,
+        description,
+        value
+      };
 
-    //   history.push('/profile');
-    // } catch (err) {
-    //   alert('Erro no cadastrar caso, tente novamente');
-    // }
+      try {
+        await api.post('/occ/', data, {
+          headers: {
+            Authorization: `Bearer ${ongToken}`
+          }
+        });
+
+        console.log(data)
+
+        history.push('/occ');
+      } catch (err) {
+        alert('Erro no cadastrar caso, tente novamente');
+      }
+    }
+
+  function reloadWindow () {
+    window.location.reload()
+  }
 
   return (
     <div className="occ-reg-conteiner" >
@@ -47,7 +60,7 @@ export default function OccRegistration() {
               <h3>Voltar para Home</h3>
             </Link>
 
-            <form>
+            <form onSubmit={handleOccRegistration}>
 
               <input 
               placeholder="Título do Caso" 
@@ -67,12 +80,12 @@ export default function OccRegistration() {
               />
 
               <div className="button-group">
-              <Link to="">
-                <button className="button-t2">
-                  Cancelar
-                </button>
-              </Link>
-              <button className="button" type="submit" onClick="">
+
+              <button className="button-t2" onClick={reloadWindow} >
+                Cancelar
+              </button>
+
+              <button className="button" type="submit" >
                 Cadastrar
               </button>
               </div>

@@ -47,8 +47,9 @@ export default function Occurrences() {
             </button>
         </header>
 
+        <h1>Casos Cadastrasdos</h1>
         <ul>
-          <h1>Casos Cadastrasdos</h1>
+          
           {occurences.map(occurences => (
             <li key={occurences.id}>
               

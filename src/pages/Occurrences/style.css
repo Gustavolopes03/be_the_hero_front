@@ -3,8 +3,6 @@
   max-width: 1120px;
   height: 100vh;
   margin: 0 auto;
-
-  display: flex;
 }
 
 .occ-conteiner header {
@@ -19,7 +17,6 @@
   left: 160px;
   top: 33px;
   border-radius: 0px;
-
   position: absolute;
   left: 11.11%;
   right: 78.89%;
@@ -32,7 +29,6 @@
   width: 100%;
   font-size: 20px;
   line-height: 18px;
-
   position: absolute;
   left: 352px;
   top: 6%;
@@ -62,15 +58,20 @@
   height: 24px;
 }
 
+.occ-conteiner ul {
+  columns: 2;
+  display: list-item;
+  -webkit-column-break-inside: avoid;
+}
+
 .occ-conteiner ul .box {
-  height: 314px;
-  width: 543px;
+  min-height: 254px;
+  min-width: 445px;
   margin-top: 14px;
   margin-left: 10px;
   margin-right: 10px;
   left: 0px;
   top: 0px;
-  list-style: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 1);
 }
