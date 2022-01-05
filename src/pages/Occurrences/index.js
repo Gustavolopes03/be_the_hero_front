@@ -25,6 +25,21 @@ export default function Occurrences() {
     });
 }, []);
 
+  function deleteOccurence (id) {
+    try {
+      api.delete(`occ/${id}` , {
+        headers:{
+          Authorization: `Bearer ${ongToken}`,
+        }
+      });
+      window.location.reload()
+    }
+
+    catch (err) {
+      alert("Erro ao Deletar")
+    }
+  }
+
   function handleLogout() {
     localStorage.clear();
 
@@ -70,9 +85,9 @@ export default function Occurrences() {
                     <p>{occurences.value}</p>
 
                   </div>
-
-                  <FiTrash2 size={20} color="#a8a8b3"/>
-                  
+                  <button onClick={() =>deleteOccurence(occurences.id)} type="button" className="deleteocc">
+                    <FiTrash2 size={20} color="#a8a8b3"/>
+                  </button>
               </div>
             </li>))}
           

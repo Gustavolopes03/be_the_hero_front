@@ -59,13 +59,14 @@
 }
 
 .occ-conteiner ul {
-  columns: 2;
-  display: list-item;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
   -webkit-column-break-inside: avoid;
 }
 
 .occ-conteiner ul .box {
-  min-height: 254px;
+  /* min-height: 254px; */
   min-width: 445px;
   margin-top: 14px;
   margin-left: 10px;
@@ -74,31 +75,34 @@
   top: 0px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 1);
-}
-
-.occ-conteiner .occ-content .box {
   padding: 5%;
 }
 
-.occ-conteiner .occ-content .box h2,
+.occ-conteiner .occ-content ul .box h2,
 h3,
 p {
   margin: 5px;
 }
 
-.occ-conteiner .occ-content .box h2 {
+.occ-conteiner .occ-content ul .box h2 {
   font-size: 24px;
 }
 
-.occ-conteiner .occ-content .box p {
+.occ-conteiner .occ-content ul .box p {
   font-size: 20px;
   margin-top: 7.5px;
 }
 
-.occ-conteiner .occ-content .box .title-content {
+.occ-conteiner .occ-content ul .box .title-content {
   display: flex;
 }
 
-.occ-conteiner .occ-content .box .value-content {
+.occ-conteiner .occ-content ul .box .value-content {
   display: flex;
+}
+
+.occ-conteiner .occ-content ul .box .deleteocc {
+  float: right;
+  background-color: transparent;
+  border: none;
 }
